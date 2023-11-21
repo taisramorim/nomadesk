@@ -1,0 +1,24 @@
+<div class="banner">
+  <h1>Nomad Desk</h1>
+  <p>The best coworking spaces are here!</p>
+</div>
+
+<div class="row">
+  <% @coworkings.each do |coworking| %>
+  <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag coworking.image %>
+        <div class="card-body">
+          <p><strong><%= coworking.title %></strong></p>
+          <p><%= coworking.address %></p>
+          <p><%= "$ #{coworking.price}" %></p>
+          <p><%= coworking.description %></p>
+        </div>
+      </div>
+  </div>
+  <% end %>
+</div>
+
+<div>
+
+</div>
