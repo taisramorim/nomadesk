@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :coworking, only: %i[index new create]
+  resources :coworkings, only: %i[index new create]
 end
