@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :searches, only: %i[index]
-  resources :coworkings, only: %i[show new create edit update] do
+  resources :coworkings, only: %i[show new create edit update destroy] do
     resources :rents, only: %i[show] do
       member do
         post 'accept'
