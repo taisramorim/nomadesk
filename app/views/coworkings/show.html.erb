@@ -1,4 +1,7 @@
 <div class="container py-5">
+
+<%= link_to "Back", root_path, class:"btn btn-dark" %>
+
   <div class="row">
     <div class="col-12 col-md-8 offset-lg-2">
       <div class="bg-white rounded p-4 shadow">
@@ -9,8 +12,8 @@
         <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
 
 
-        <%= link_to "Back", root_path, class:"btn btn-dark" %>
-      </div>
+        <%= link_to 'Edit', edit_coworking_path(@coworking), class:"btn btn-light ml-3" %>
+        <%= link_to "Delete", coworking_path(@coworking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
     </div>
   </div>
 </div>
