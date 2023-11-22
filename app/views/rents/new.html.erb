@@ -1,0 +1,6 @@
+<h1>New Rent</h1>
+<%= simple_form_for [@coworking, @rent] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Submit rent", class: "btn btn-primary" %>
+<% end %>
