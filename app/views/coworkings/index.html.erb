@@ -13,6 +13,7 @@
           <p><%= coworking.address %></p>
           <p><%= "$ #{coworking.price}" %></p>
           <p><%= coworking.description %></p>
+          <%= link_to 'Edit', edit_coworking_path(coworking), class:"btn btn-dark" %>
         </div>
       </div>
   </div>
