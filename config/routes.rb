@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :searches, only: %i[index]
   resources :coworkings, only: %i[show new create edit update destroy] do
-    resources :rents, only: %i[new create show] do
+    resources :rents, only: %i[new create show edit update] do
       member do
         post 'accept'
         post 'reject'
