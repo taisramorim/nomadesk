@@ -12,8 +12,9 @@ class CoworkingsController < ApplicationController
 
   def create
     @coworking = Coworking.new(coworking_params)
+    @coworking.user = current_user
     if @coworking.save
-      redirect_to @coworking
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
