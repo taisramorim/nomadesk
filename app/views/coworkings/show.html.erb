@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-lg-2">
+      <div class="bg-white rounded p-4 shadow">
+        <h1 style="margin-bottom: 40px;"><%= @coworking.title %></h1>
+        <%= image_tag @coworking.image, class: "img-responsive", style: "max-width: 100%;" %>
+        <p style="margin-top: 30px;"><strong>Adress:</strong> <%= @coworking.address %></p>
+        <p><strong>Price:</strong> <%= number_to_currency (@coworking.price) %></p>
+        <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
+
+
+        <%= link_to "Back", root_path, class:"btn btn-dark" %>
+      </div>
+    </div>
+  </div>
+</div>
