@@ -10,8 +10,6 @@
         <p style="margin-top: 30px;"><strong>Adress:</strong> <%= @coworking.address %></p>
         <p><strong>Price:</strong> <%= number_to_currency (@coworking.price) %></p>
         <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
-
-
         <%= link_to 'Edit', edit_coworking_path(@coworking), class:"btn btn-light ml-3" %>
         <%= link_to "Delete", coworking_path(@coworking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
     </div>

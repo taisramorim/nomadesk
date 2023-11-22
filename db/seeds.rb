@@ -11,12 +11,25 @@ puts "Getting seeds"
 
 Coworking.destroy_all
 User.destroy_all
+Rent.destroy_all
 
-User.create(username: 'User 1', first_name: '1', last_name: 'User', email: 'user1@example.com', password: 'password1')
-User.create(username: 'User 2', first_name: '2', last_name: 'User', email: 'user2@example.com', password: 'password2')
+user1 = User.create(
+  username: 'User 1',
+  first_name: '1',
+  last_name: 'User',
+  email: 'user1@example.com',
+  password: 'password1'
+)
 
+user2 = User.create(
+  username: 'User 2',
+  first_name: '2',
+  last_name: 'User',
+  email: 'user2@example.com',
+  password: 'password2'
+)
 
-Coworking.create(
+coworking1 = Coworking.create(
   title: 'First coworking space',
   address: 'Boston',
   price: 150,
@@ -25,14 +38,45 @@ Coworking.create(
   user: User.first
 )
 
-
-Coworking.create(
+coworking2 = Coworking.create(
   title: 'Second coworking space',
   address: 'Rome',
   price: 200,
   description: 'Awesome place to work.',
   image: 'https://ctfassets.imgix.net/vh7r69kgcki3/1yD4Tmm83DWGhp6UzGId5z/baa2c10600153343d3b72c24762ba571/Web_150DPI-20201217_WeWork_Km_5_Av_Las_Palmas_-_Medellin_007.jpg',
   user: User.second
+)
+
+Rent.create(
+  start_date: Date.today,
+  end_date: Date.today + 7,
+  status: :pending,
+  coworking: coworking1,
+  user: user1
+)
+
+Rent.create(
+  start_date: Date.today + 10,
+  end_date: Date.today + 17,
+  status: :pending,
+  coworking: coworking2,
+  user: user2
+)
+
+Rent.create(
+  start_date: Date.today - 5,
+  end_date: Date.today,
+  status: :accepted,
+  coworking: coworking1,
+  user: user2
+)
+
+Rent.create(
+  start_date: Date.today - 3,
+  end_date: Date.today + 4,
+  status: :rejected,
+  coworking: coworking2,
+  user: user1
 )
 
 puts "Seeds created"
