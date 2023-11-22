@@ -10,7 +10,8 @@ class RentsController < ApplicationController
       redirect_to root_path, notice: "Your stay has been updated!"
     else
       render :edit, status: :unprocessable_entity
-   end
+    end
+  end
 
   def index
     @rents = Rent.all
@@ -29,7 +30,8 @@ class RentsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  
+  end
+
   def show
     # before_action
     @coworking = @rent.coworking
@@ -59,7 +61,7 @@ class RentsController < ApplicationController
   def rent_params
     params.require(:rent).permit(:start_date, :end_date, :coworking_id, :user_id)
   end
-    
+
   def set_rent
     @rent = Rent.find(params[:id])
   end
