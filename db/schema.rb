@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_203454) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_154936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_203454) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_coworkings_on_user_id"
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "coworking_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coworking_id"], name: "index_rents_on_coworking_id"
+    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -47,4 +58,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_203454) do
   end
 
   add_foreign_key "coworkings", "users"
+  add_foreign_key "rents", "coworkings"
+  add_foreign_key "rents", "users"
 end
