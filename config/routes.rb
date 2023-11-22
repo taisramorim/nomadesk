@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   resources :searches, only: %i[index]
   resources :coworkings, only: %i[show new create edit update]
+  resources :rents, only: %i[edit update]
 
 end
