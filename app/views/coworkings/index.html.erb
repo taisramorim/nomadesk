@@ -6,8 +6,9 @@
 <div class="row">
   <% @coworkings.each do |coworking| %>
   <div class="col-md-4 mb-4">
+  <%=  link_to coworking_path(coworking) do %>
       <div class="card">
-        <%= image_tag coworking.image %>
+        <%= image_tag coworking.image, class: "card-img-top img-fluid" %>
         <div class="card-body">
           <p><strong><%= coworking.title %></strong></p>
           <p><%= coworking.address %></p>
@@ -17,6 +18,7 @@
           <%= link_to 'Book', new_coworking_rent_path(coworking), class:"btn btn-dark"%>
         </div>
       </div>
+      <% end %>
   </div>
   <% end %>
 </div>

@@ -1,5 +1,6 @@
 class CoworkingsController < ApplicationController
-  before_action :find_coworking, only: [:edit, :update]
+  before_action :find_coworking, only: %i[edit update show]
+
   skip_before_action :authenticate_user!, only: :index
 
   def index
@@ -14,14 +15,14 @@ class CoworkingsController < ApplicationController
     @coworking = Coworking.new(coworking_params)
     @coworking.user = current_user
     if @coworking.save
-      redirect_to root_path
+      redirect_to coworking_path(@coworking)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @coworking = Coworking.find(params[:id])
+    # before action
   end
 
   def edit
@@ -29,10 +30,16 @@ class CoworkingsController < ApplicationController
 
   def update
     if @coworking.update(coworking_params)
-      redirect_to root_path, notice: 'Coworking was successfully updated.'
+      redirect_to root_path, notice: 'The coworking was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @coworking = Coworking.find(params[:id])
+    @coworking.destroy
+    redirect_to root_path, notice: 'The coworking was successfully deleted'
   end
 
   private

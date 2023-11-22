@@ -1,0 +1,28 @@
+<h1>Rent Details</h1>
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-lg-2">
+      <div class="bg-white rounded p-4 shadow">
+        <h1 style="margin-bottom: 40px;"><%= @coworking.title %></h1>
+        <h5><strong>Status:</strong> <%= @rent.status %></h5>
+        <%= image_tag @coworking.image, class: "img-responsive", style: "max-width: 100%;" %>
+        <p style="margin-top: 30px;"><strong>Adress:</strong> <%= @coworking.address %></p>
+        <p><strong>Price:</strong> <%= number_to_currency (@coworking.price) %></p>
+        <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
+        <p style="margin-bottom: 30px;"><strong>Start Date</strong> <%= @rent.start_date %></p>
+        <p style="margin-bottom: 30px;"><strong>End Date</strong> <%= @rent.end_date %></p>
+
+        <%= simple_form_for [@coworking, @rent], url: accept_coworking_rent_path(@coworking, @rent), method: :post do |form| %>
+          <%= form.button :submit, 'Accept', class: 'btn btn-success' %>
+        <% end %>
+
+        <%= simple_form_for [@coworking, @rent], url: reject_coworking_rent_path(@coworking, @rent), method: :post do |form| %>
+          <%= form.button :submit, 'Reject', class: 'btn btn-danger' %>
+        <% end %>
+
+        <%= link_to 'Delete', rent_path(@rent), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

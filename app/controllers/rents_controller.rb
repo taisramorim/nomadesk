@@ -1,5 +1,7 @@
 class RentsController < ApplicationController
+
   before_action :set_coworking, only: [:new, :create]
+  before_action :set_rent, only: %i[show destroy accept reject]
 
   def index
     @rents = Rent.all
@@ -18,6 +20,25 @@ class RentsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  
+  def show
+    # before_action
+    @coworking = @rent.coworking
+  end
+
+  def destroy
+    @rent.destroy
+    redirect_to coworking_path(@rent.coworking)
+  end
+
+  def accept
+    @rent.update(status: :accepted)
+    redirect_to coworking_path(@rent.coworking)
+  end
+
+  def reject
+    @rent.update(status: :rejected)
+    redirect_to coworking_path(@rent.coworking)
   end
 
   private
@@ -28,5 +49,7 @@ class RentsController < ApplicationController
 
   def rent_params
     params.require(:rent).permit(:start_date, :end_date, :coworking_id, :user_id)
+  def set_rent
+    @rent = Rent.find(params[:id])
   end
 end
