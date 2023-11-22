@@ -23,6 +23,10 @@ class CoworkingsController < ApplicationController
 
   def show
     # before action
+    @markers = [{
+        lat: @coworking.latitude,
+        lng: @coworking.longitude
+      }]
   end
 
   def edit
