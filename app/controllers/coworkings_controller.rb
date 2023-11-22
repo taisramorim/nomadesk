@@ -19,6 +19,10 @@ class CoworkingsController < ApplicationController
     end
   end
 
+  def show
+    @coworking = Coworking.find(params[:id])
+  end
+
   def edit
   end
 
