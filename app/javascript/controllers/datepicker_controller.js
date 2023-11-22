@@ -1,0 +1,13 @@
+import { Controller } from "@hotwired/stimulus"
+import flatpickr from "flatpickr";
+
+// Connects to data-controller="datepicker"
+export default class extends Controller {
+  connect() {
+    const option ={
+
+    };
+
+    flatpickr(this.element, option)
+  }
+}

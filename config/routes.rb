@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches/index'
   devise_for :users
   root to: "coworkings#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -11,4 +12,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :coworkings, only: %i[new create]
+
+  resources :searches, only: %i[index]
 end

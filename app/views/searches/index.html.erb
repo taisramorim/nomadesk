@@ -1,0 +1,17 @@
+<h1>Coworking Places</h1>
+
+<div class="card">
+  <% if @coworkings.any? %>
+    <% @coworkings.each do |coworking| %>
+      <% if coworking.address == @search.location %>
+        <h3><%= coworking.title %></h3>
+        <p><%= coworking.address %></p>
+        <p><%= coworking.price %></p>
+      <% else %>
+        <p>Please look for a place to work</p>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>No coworking places found</p>
+  <% end %>
+</div>
