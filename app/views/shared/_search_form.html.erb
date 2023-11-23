@@ -7,10 +7,19 @@
           %>
 
   <div class="input-group-append">
+    <%= f.input :check_in, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-in', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
+  </div>
+
+  <div class="input-group-append">
+    <%= f.input :check_out, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-out', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
+  </div>
+
+  <div class="input-group-append">
     <%= submit_tag "Search",
       name: "",
       class: "btn btn-outline-success"
     %>
+
   </div>
 </div>
 <% end %>
