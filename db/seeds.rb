@@ -115,7 +115,7 @@ coworking6 = Coworking.create(
   user: User.last
 )
 
-coworking7 = Coworking.create(
+Coworking.create(
   title: 'Another coworking space',
   address: 'Boston, USA',
   price: 250,
@@ -124,7 +124,7 @@ coworking7 = Coworking.create(
   user: User.first
 )
 
-coworking8 = Coworking.create(
+Coworking.create(
   title: 'One more coworking space',
   address: 'Recife, Brazil',
   price: 200,
@@ -133,7 +133,7 @@ coworking8 = Coworking.create(
   user: User.second
 )
 
-coworking9 = Coworking.create(
+Coworking.create(
   title: 'And this space',
   address: 'Sao Paulo, Brazil',
   price: 150,
@@ -142,7 +142,7 @@ coworking9 = Coworking.create(
   user: User.third
 )
 
-coworking10 = Coworking.create(
+Coworking.create(
   title: 'Amazing space',
   address: 'Curitiba, Brazil',
   price: 200,
@@ -151,7 +151,7 @@ coworking10 = Coworking.create(
   user: User.fourth
 )
 
-coworking11 = Coworking.create(
+Coworking.create(
   title: 'Incredible',
   address: 'Florianopolis, Brazil',
   price: 150,
@@ -160,7 +160,7 @@ coworking11 = Coworking.create(
   user: User.fifth
 )
 
-coworking12 = Coworking.create(
+Coworking.create(
   title: 'Best working place',
   address: 'Belo Horizonte, Brazil',
   price: 200,
@@ -213,7 +213,7 @@ Rent.create(
   start_date: Date.today - 55,
   end_date: Date.today + 60,
   status: :accepted,
-  coworking: coworking10,
+  coworking: coworking6,
   user: user4
 )
 
@@ -221,7 +221,7 @@ Rent.create(
   start_date: Date.today - 23,
   end_date: Date.today + 14,
   status: :rejected,
-  coworking: coworking12,
+  coworking: coworking5,
   user: user6
 )
 
