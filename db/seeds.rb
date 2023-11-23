@@ -9,9 +9,9 @@
 #   end
 puts "Getting seeds"
 
+Rent.destroy_all
 Coworking.destroy_all
 User.destroy_all
-Rent.destroy_all
 
 user1 = User.create(
   username: 'User 1',
