@@ -6,11 +6,19 @@
             placeholder: "Find a place"
           %>
   <div class="input-group-append">
-    <%= f.input :check_in, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-in', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
+    <%= text_field_tag :check_in,
+      params[:check_in],
+      class: 'form-control flatpickr',
+      placeholder: 'Check-in',
+      data: { controller: "datepicker"},  autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' %>
   </div>
 
   <div class="input-group-append">
-    <%= f.input :check_out, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-out', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
+    <%= text_field_tag :check_out,
+    params[:check_out],
+    class: 'form-control flatpickr',
+    placeholder: 'Check-out',
+    data: { controller: "datepicker"},   autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' %>
   </div>
 
   <div class="input-group-append">
