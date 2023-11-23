@@ -19,6 +19,12 @@ class RentsController < ApplicationController
 
   def new
     @rent = Rent.new
+    @markers = @coworking.geocoded.map do |coworking|
+      {
+        lat: coworking.latitude,
+        lng: coworking.longitude
+      }
+    end
   end
 
   def create
@@ -26,7 +32,7 @@ class RentsController < ApplicationController
     @rent.coworking = @coworking
     @rent.user = current_user
     if @rent.save
-      redirect_to coworking_rent_path(@coworking, @rent), notice: 'Rent was successfully created.'
+      redirect_to root_path, notice: 'Rent was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
