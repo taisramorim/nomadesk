@@ -1,5 +1,53 @@
 <h2>My Coworkings</h2>
-<p><%= @user.coworkings %></p>
 
-<h2>My rents</h2>
-<p><%= @user.rents %></p>
+<div class="container mt-2">
+  <div class="row">
+    <% @user.coworkings.each do |coworking| %>
+      <div class="col-md-4 mb-4">
+        <%= link_to coworking_path(coworking) do %>
+          <div class="card h-100 rounded bg-white p-3 shadow">
+            <div class="image-container" style="height: 300px; overflow: hidden;">
+              <%= image_tag coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
+            </div>
+            <div class="card-body">
+              <p><strong><%= coworking.title %></strong></p>
+              <p><%= coworking.address %></p>
+              <p><%= "$ #{coworking.price}" %></p>
+              <p><%= coworking.description %></p>
+              <div class="button-container">
+                <%= link_to 'Edit', edit_coworking_path(coworking), class: "btn btn-dark" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+
+<h2>My reservations</h2>
+
+<div class="container mt-2">
+  <div class="row">
+    <% @user.rents.each do |rent| %>
+      <div class="col-md-4 mb-4">
+        <%= link_to coworking_path(rent.coworking) do %>
+          <div class="card h-100 rounded bg-white p-3 shadow">
+            <div class="image-container" style="height: 300px; overflow: hidden;">
+              <%= image_tag rent.coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
+            </div>
+            <div class="card-body">
+              <p><strong><%= rent.coworking.title %></strong></p>
+              <p><%= rent.coworking.address %></p>
+              <p><%= "$ #{rent.coworking.price}" %></p>
+              <p><%= rent.coworking.description %></p>
+              <div class="button-container">
+                <%= link_to 'Edit', edit_coworking_path(rent.coworking), class: "btn btn-dark" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  </div>
