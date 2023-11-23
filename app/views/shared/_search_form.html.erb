@@ -1,17 +1,23 @@
-<%= simple_form_for Search.new, url: searches_path, method: :get, class: 'navbar-form', role: 'search' do |f| %>
+<%= form_with url: searches_path, method: :get, class: 'navbar-form', role: 'search' do |f| %>
   <div class="input-group">
-    <%= f.input :location, label: false, input_html: { class: 'form-control', placeholder: 'Location', style: 'width: 200px; margin-right: 5px;' } %>
-
-    <div class="input-group-append">
-      <%= f.input :check_in, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-in', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
-    </div>
-
-    <div class="input-group-append">
-      <%= f.input :check_out, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-out', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
-    </div>
-
-    <div class="input-group-append">
-      <%= f.button :submit, 'Search', class: 'btn btn-outline-success', style: 'padding: 8px 16px; margin-right: 5px;' %>
-    </div>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a place"
+          %>
+  <div class="input-group-append">
+    <%= f.input :check_in, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-in', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
   </div>
+
+  <div class="input-group-append">
+    <%= f.input :check_out, label: false, as: :string, input_html: { data: { controller: "datepicker"}, class: 'form-control flatpickr', placeholder: 'Check-out', autocomplete: 'off', style: 'width: 120px; margin-right: 5px;' } %>
+  </div>
+
+  <div class="input-group-append">
+    <%= submit_tag "Search",
+      name: "",
+      class: "btn btn-outline-success"
+    %>
+  </div>
+</div>
 <% end %>
