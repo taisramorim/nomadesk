@@ -16,11 +16,6 @@ body{
   padding: 25px;
 }
 
-.img-fluid {
-  max-height: 200px;
-  width: auto;
-}
-
 .card-body a {
   text-decoration: none;
   color: inherit;
@@ -28,4 +23,8 @@ body{
 
 .card-body .btn {
   color: white;
+}
+
+.btn{
+  border-radius: 8px;
 }

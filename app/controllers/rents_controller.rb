@@ -26,7 +26,7 @@ class RentsController < ApplicationController
     @rent.coworking = @coworking
     @rent.user = current_user
     if @rent.save
-      redirect_to root_path, notice: 'Rent was successfully created.'
+      redirect_to coworking_rent_path(@coworking, @rent), notice: 'Rent was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
