@@ -23,4 +23,6 @@ Rails.application.routes.draw do
     end
   end
   resources :rents, only: %i[destroy]
+
+  get "profile", to: "users#profile"
 end
