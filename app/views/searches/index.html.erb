@@ -1,28 +1,28 @@
 <h1>Coworking Places</h1>
 
 <div class="row">
-  <% @coworkings.each do |coworking| %>
-    <div class="col-md-4 mb-4 bg-white rounded p-4 shadow" style="margin: 20px;">
-      <%= link_to coworking_path(coworking) do %>
-        <% if coworking.address == @search.location %>
-          <div class="card h-100 rounded">
-            <div class="image-container" style="height: 400px; overflow: hidden;">
-              <%= image_tag coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
-            </div>
-            <div class="card-body">
-              <p><strong><%= coworking.title %></strong></p>
-              <p><%= coworking.address %></p>
-              <p><%= "$ #{coworking.price}" %></p>
-              <p><%= coworking.description %></p>
-              <div class="button-container">
-                <%= link_to 'Book', new_coworking_rent_path(coworking), class: "btn btn-dark" %>
+  <% if @coworkings == [] %>
+    <p>We couldn't find any place.</p>
+  <% else %>
+    <% @coworkings.each do |coworking| %>
+      <div class="col-md-4 mb-4 bg-white rounded p-4 shadow" style="margin: 20px;">
+        <%= link_to coworking_path(coworking) do %>
+            <div class="card h-100 rounded">
+              <div class="image-container" style="height: 400px; overflow: hidden;">
+                <%= image_tag coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
+              </div>
+              <div class="card-body">
+                <p><strong><%= coworking.title %></strong></p>
+                <p><%= coworking.address %></p>
+                <p><%= "$ #{coworking.price}" %></p>
+                <p><%= coworking.description %></p>
+                <div class="button-container">
+                  <%= link_to 'Book', new_coworking_rent_path(coworking), class: "btn btn-dark" %>
+                </div>
               </div>
             </div>
-          </div>
-          <% else %>
-          <p>Please look for a place to work</p>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

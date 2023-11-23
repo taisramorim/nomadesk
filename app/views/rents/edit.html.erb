@@ -5,8 +5,8 @@
        <h1>Update your dates here:</h1>
         <%= simple_form_for @rent do |f| %>
             <%= image_tag @coworking.image, class: "img-fluid mb-3", style: "max-width: 100%;" %>
-            <%= f.input :start_date %>
-            <%= f.input :end_date %>
+            <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker"} }%>
+            <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker"} }%>
             <%= f.input :description %>
             <%= f.input :price %>
             <%= f.submit 'Edit', class:"btn btn-info mb-3"%>

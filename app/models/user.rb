@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :coworkings
+  has_many :rents
+  has_many :rents_as_owner, through: :coworking, source: :rents
 end
