@@ -1,6 +1,22 @@
-<h1>New Rent</h1>
-<%= simple_form_for [@coworking, @rent] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Submit rent", class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+
+  <div class="col-12 col-md-8 offset-lg-2">
+    <div class="bg-white rounded p-4 shadow">
+
+      <h1 style="margin-bottom: 40px;"><%= @coworking.title %></h1>
+      <%= image_tag @coworking.image, class: "img-responsive", style: "max-width: 100%;" %>
+      <p style="margin-top: 30px;"><strong>Address:</strong> <%= @coworking.address %></p>
+      <p><strong>Price:</strong> <%= number_to_currency(@coworking.price) %></p>
+      <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
+
+
+      <h1>Book now</h1>
+      <%= simple_form_for [@coworking, @rent] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit "Book", class: "btn btn-primary" %>
+        <%= link_to 'Cancel', root_path, class: 'btn btn-light' %>
+      <% end %>
+    </div>
+  </div>
+</div>
