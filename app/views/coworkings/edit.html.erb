@@ -1,7 +1,7 @@
-<div class="container py-5 justify-content-center">
-  <div class="row">
-    <div class="col-8 col-md-4 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-8 col-md-7">
+      <div class="text-center bg-white radius p-3 shadow">
         <%= simple_form_for @coworking do |f| %>
             <%= image_tag @coworking.image, class: "img-fluid mb-3", style: "max-width: 100%;" %>
             <%= f.input :image %>
@@ -11,7 +11,7 @@
             <%= f.input :price %>
             <%= f.submit 'Update Coworking', class:"btn btn-info mb-3"%>
           <% end %>
-          <%= link_to 'Back', root_path, class:"btn btn-light ml-3"%>
+            <%= link_to 'Back', profile_path, class:"btn btn-light ml-3"%>
       </div>
     </div>
   </div>

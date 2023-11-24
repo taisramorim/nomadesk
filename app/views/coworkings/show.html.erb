@@ -2,16 +2,19 @@
 
 <%= link_to "Back", root_path, class:"btn btn-light" %>
 
-  <div class="row">
-    <div class="col-12 col-md-8 offset-lg-2">
-      <div class="bg-white rounded p-4 shadow">
+  <div class="row justify-content-center">
+    <div class="col-8 col-md-7">
+      <div class="text-center bg-white radius p-3 shadow">
         <h1 style="margin-bottom: 40px;"><%= @coworking.title %></h1>
         <%= image_tag @coworking.image, class: "img-responsive", style: "max-width: 100%;" %>
-        <p style="margin-top: 30px;"><strong>Adress:</strong> <%= @coworking.address %></p>
+        <p style="margin-top: 30px;"><strong>Address:</strong> <%= @coworking.address %></p>
         <p><strong>Price:</strong> <%= number_to_currency (@coworking.price) %></p>
         <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
-        <%= link_to 'Edit', edit_coworking_path(@coworking), class:"btn btn-light ml-3" %>
-        <%= link_to "Delete", coworking_path(@coworking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <% if current_user != @coworking.user %>
+            <%= link_to 'Book', new_coworking_rent_path(@coworking), class:"btn btn-dark ml-3" %>
+          <% end %>
+        <%# <%= link_to 'Edit', edit_coworking_path(@coworking), class:"btn btn-light ml-3" %>
+        <%# <%= link_to "Delete", coworking_path(@coworking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
 
         <div style="margin-top: 60px; width: 100%; height: 600px;"
           data-controller="map"
