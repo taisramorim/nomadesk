@@ -11,7 +11,7 @@
     <% @coworkings.each do |coworking| %>
       <div class="col-md-4 mb-4">
         <%= link_to coworking_path(coworking) do %>
-          <div class="card h-100 rounded bg-white p-3 shadow">
+          <div class="card h-100 radius bg-white p-3 shadow">
             <div class="image-container" style="height: 300px; overflow: hidden;">
               <%= image_tag coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
             </div>
@@ -20,9 +20,7 @@
               <p><%= coworking.address %></p>
               <p><%= "$ #{coworking.price}" %></p>
               <p><%= coworking.description %></p>
-              <div class="button-container">
-                <%= link_to 'Edit', edit_coworking_path(coworking), class: "btn btn-dark" %>
-              </div>
+
             </div>
           </div>
         <% end %>

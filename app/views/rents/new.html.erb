@@ -1,22 +1,26 @@
-<div class="row justify-content-center">
+<div class="container py-5">
+<%= link_to "Back", root_path, class:"btn btn-light" %>
 
-  <div class="col-6 col-md-4 offset-lg-2 ">
-    <div class="bg-white rounded p-4 shadow">
+  <div class="row justify-content-center">
 
-      <h1 style="margin-bottom: 40px;"><%= @coworking.title %></h1>
-      <%= image_tag @coworking.image, class: "img-responsive", style: "max-width: 100%;" %>
-      <p style="margin-top: 30px;"><strong>Address:</strong> <%= @coworking.address %></p>
-      <p><strong>Price:</strong> <%= number_to_currency(@coworking.price) %></p>
-      <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
+    <div class="col-8 col-md-7">
+      <div class="text-center bg-white radius p-3 shadow">
+
+        <h1 style="margin-bottom: 40px;"><%= @coworking.title %></h1>
+        <%= image_tag @coworking.image, class: "img-responsive", style: "max-width: 100%;" %>
+        <p style="margin-top: 30px;"><strong>Address:</strong> <%= @coworking.address %></p>
+        <p><strong>Price:</strong> <%= number_to_currency(@coworking.price) %></p>
+        <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
 
 
-      <h1>Book now</h1>
-      <%= simple_form_for [@coworking, @rent] do |f| %>
-      <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker"} }%>
-      <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker"} }%>
-        <%= f.submit "Book", class: "btn btn-primary" %>
-        <%= link_to 'Cancel', root_path, class: 'btn btn-light' %>
-      <% end %>
+        <h1>Book now</h1>
+        <%= simple_form_for [@coworking, @rent] do |f| %>
+        <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker"} }%>
+        <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker"} }%>
+          <%= f.submit "Book", class: "btn btn-primary" %>
+          <%= link_to 'Cancel', root_path, class: 'btn btn-light' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

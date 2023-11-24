@@ -52,7 +52,7 @@ gem "sassc-rails"
 
 gem "devise"
 gem 'geocoder'
-
+gem 'font-awesome-rails'
 
 gem "pg_search"
 

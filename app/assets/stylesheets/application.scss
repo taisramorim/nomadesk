@@ -21,10 +21,19 @@ body{
   color: inherit;
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 .card-body .btn {
   color: white;
 }
 
 .btn{
   border-radius: 8px;
+}
+
+.radius {
+  border-radius: 8px !important;
 }
