@@ -50,12 +50,16 @@ class RentsController < ApplicationController
 
   def accept
     @rent.update(status: :accepted)
-    redirect_to coworking_path(@rent.coworking)
+    respond_to do |format|
+      format.js { render inline: "location.reload();" }
+    end
   end
 
   def reject
     @rent.update(status: :rejected)
-    redirect_to coworking_path(@rent.coworking)
+    respond_to do |format|
+      format.js { render inline: "location.reload();" }
+    end
   end
 
   private

@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :coworkings
   has_many :rents
-  has_many :rents_as_owner, through: :coworking, source: :rents
+  has_many :rents_as_owner, through: :coworkings, source: :rents
 end

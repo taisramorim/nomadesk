@@ -12,16 +12,17 @@
         <p style="margin-bottom: 30px;"><strong>Description:</strong> <%= @coworking.description %></p>
         <p style="margin-bottom: 30px;"><strong>Start Date</strong> <%= @rent.start_date %></p>
         <p style="margin-bottom: 30px;"><strong>End Date</strong> <%= @rent.end_date %></p>
+        <div class="d-flex gap-2">
+          <%= simple_form_for [@coworking, @rent], url: accept_coworking_rent_path(@coworking, @rent), method: :post do |form| %>
+            <%= form.button :submit, 'Accept', class: 'btn btn-success' %>
+          <% end %>
 
-        <%= simple_form_for [@coworking, @rent], url: accept_coworking_rent_path(@coworking, @rent), method: :post do |form| %>
-          <%= form.button :submit, 'Accept', class: 'btn btn-success' %>
-        <% end %>
+          <%= simple_form_for [@coworking, @rent], url: reject_coworking_rent_path(@coworking, @rent), method: :post do |form| %>
+            <%= form.button :submit, 'Reject', class: 'btn btn-danger' %>
+          <% end %>
 
-        <%= simple_form_for [@coworking, @rent], url: reject_coworking_rent_path(@coworking, @rent), method: :post do |form| %>
-          <%= form.button :submit, 'Reject', class: 'btn btn-danger' %>
-        <% end %>
-
-        <%= link_to 'Delete', rent_path(@rent), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+          <%= link_to 'Delete', rent_path(@rent), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+        </div>
       </div>
     </div>
   </div>

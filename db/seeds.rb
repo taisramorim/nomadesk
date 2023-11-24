@@ -156,7 +156,7 @@ Coworking.create(
   address: 'Florianopolis, Brazil',
   price: 150,
   description: 'Nice place to work.',
-  image: "coworking1.jpeg",
+  image: "coworking11.jpeg",
   user: User.fifth
 )
 
@@ -165,7 +165,7 @@ Coworking.create(
   address: 'Belo Horizonte, Brazil',
   price: 200,
   description: 'Awesome place to work.',
-  image: "coworking2.jpeg",
+  image: "coworking12.jpeg",
   user: User.last
 )
 
@@ -173,7 +173,7 @@ Rent.create(
   start_date: Date.today,
   end_date: Date.today + 7,
   status: :pending,
-  coworking: coworking1,
+  coworking: coworking2,
   user: user1
 )
 
@@ -181,7 +181,7 @@ Rent.create(
   start_date: Date.today + 10,
   end_date: Date.today + 17,
   status: :pending,
-  coworking: coworking2,
+  coworking: coworking3,
   user: user2
 )
 
@@ -189,7 +189,7 @@ Rent.create(
   start_date: Date.today - 5,
   end_date: Date.today,
   status: :accepted,
-  coworking: coworking3,
+  coworking: coworking1,
   user: user3
 )
 
