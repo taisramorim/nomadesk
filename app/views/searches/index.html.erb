@@ -1,28 +1,30 @@
-<h1>Coworking Places</h1>
+<div class="container my-5">
+  <div class='text-center'>
+    <h1>Coworking Places</h1>
+  </div>
+</div>
 
-<div class="row">
-  <% if @coworkings == [] %>
-    <p>We couldn't find any place.</p>
-  <% else %>
+<div class="container mt-2">
+  <div class="row">
     <% @coworkings.each do |coworking| %>
-      <div class="col-md-4 mb-4 bg-white rounded p-4 shadow" style="margin: 20px;">
+      <div class="col-md-4 mb-4">
         <%= link_to coworking_path(coworking) do %>
-            <div class="card h-100 rounded">
-              <div class="image-container" style="height: 400px; overflow: hidden;">
-                <%= image_tag coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
-              </div>
-              <div class="card-body">
-                <p><strong><%= coworking.title %></strong></p>
-                <p><%= coworking.address %></p>
-                <p><%= "$ #{coworking.price}" %></p>
-                <p><%= coworking.description %></p>
-                <div class="button-container">
-                  <%= link_to 'Book', new_coworking_rent_path(coworking), class: "btn btn-dark" %>
-                </div>
+          <div class="card h-100 radius bg-white p-3 shadow">
+            <div class="image-container" style="height: 300px; overflow: hidden;">
+              <%= image_tag coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
+            </div>
+            <div class="card-body">
+              <p><strong><%= coworking.title %></strong></p>
+              <p><%= coworking.address %></p>
+              <p><%= "$ #{coworking.price}" %></p>
+              <p><%= coworking.description %></p>
+              <div class="button-container">
+                <%= link_to 'Book', new_coworking_rent_path(coworking), class: "btn btn-dark" %>
               </div>
             </div>
+          </div>
         <% end %>
       </div>
     <% end %>
-  <% end %>
+  </div>
 </div>

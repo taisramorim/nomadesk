@@ -43,7 +43,7 @@ class CoworkingsController < ApplicationController
   def destroy
     @coworking = Coworking.find(params[:id])
     @coworking.destroy
-    redirect_to root_path, notice: 'The coworking was successfully deleted'
+    redirect_to profile_path, notice: 'The coworking was successfully deleted'
   end
 
   private
