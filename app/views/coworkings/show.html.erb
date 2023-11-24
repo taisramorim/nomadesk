@@ -1,6 +1,6 @@
 <div class="container py-5">
 
-<%= link_to "Back", profile_path, class:"btn btn-light" %>
+  <%= link_to "Back", profile_path, class:"btn btn-light" %>
 
   <div class="row justify-content-center">
     <div class="col-8 col-md-7">
@@ -20,6 +20,8 @@
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

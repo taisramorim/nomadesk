@@ -1,11 +1,13 @@
-<div class='text-center'>
-  <h2>My Coworkings</h2>
+<div class="container my-5">
+  <div class='text-center'>
+    <h2>My Coworkings</h2>
+  </div>
 </div>
 
 <div class="container mt-2">
   <div class="row">
   <% if @user.coworkings == [] %>
-    <h2>No founded places</h2>
+    <p>No founded places</p>
   <% else %>
     <% @user.coworkings.each do |coworking| %>
         <div class="col-md-4 mb-4">
@@ -21,6 +23,10 @@
                 <p><%= coworking.description %></p>
                 <div class="button-container">
                   <%= link_to 'Edit', edit_coworking_path(coworking), class: "btn btn-dark" %>
+                  <%= link_to "Delete",
+                    coworking_path(coworking), class: "btn btn-danger",
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                  %>
                 </div>
               </div>
             </div>
@@ -36,14 +42,16 @@
 </div>
 
 
-<div class="text-center">
-<h2>My reservations</h2>
+<div class="container my-5">
+  <div class='text-center'>
+    <h2>My Reservations</h2>
+  </div>
 </div>
 
 <div class="container mt-2">
   <div class="row">
   <% if @user.coworkings == [] %>
-    <h2>No founded places</h2>
+    <p>No founded places</p>
   <% else %>
       <% @user.rents.each do |rent| %>
         <div class="col-md-4 mb-4">
@@ -74,8 +82,10 @@
   <% end %>
 </div>
 
-<div class="text-center">
-  <h2>My Coworkings status</h2>
+<div class="container my-5">
+  <div class='text-center'>
+    <h2>My Coworkings Status</h2>
+  </div>
 </div>
 
   <div class="container mt-2">
@@ -83,7 +93,7 @@
       <% @rents.each do |rent| %>
         <div class="col-md-4 mb-4">
           <%= link_to coworking_rent_path(rent.coworking, rent), class: 'text-decoration-none' do %>
-            <div class="card h-100 rounded bg-white p-3 shadow">
+            <div class="card h-100 radius bg-white p-3 shadow">
               <div class="image-container" style="height: 300px; overflow: hidden;">
                 <%= image_tag rent.coworking.image, class: "img-fluid", style: "object-fit: cover; height: 100%; width: 100%;" %>
               </div>
