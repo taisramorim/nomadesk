@@ -59,6 +59,10 @@
                 <p><%= rent.start_date%> / <%= rent.end_date %></p>
                 <div class="button-container">
                   <%= link_to 'Edit', edit_rent_path(rent), class: "btn btn-dark" %>
+                  <%= link_to "Delete",
+                    rent_path(rent), class: "btn btn-danger",
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                  %>
                 </div>
               </div>
             </div>

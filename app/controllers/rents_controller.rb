@@ -39,7 +39,7 @@ class RentsController < ApplicationController
 
   def destroy
     @rent.destroy
-    redirect_to coworking_path(@rent.coworking)
+    redirect_to profile_path
   end
 
   def accept

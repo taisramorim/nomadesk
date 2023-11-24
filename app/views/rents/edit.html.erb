@@ -1,7 +1,7 @@
 <div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-7">
+      <div class="text-center bg-white rounded p-3 shadow">
        <h1>Update your dates here:</h1>
         <%= simple_form_for @rent do |f| %>
             <%= image_tag @rent.coworking.image, class: "img-fluid mb-3", style: "max-width: 100%;" %>
@@ -9,7 +9,7 @@
             <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker"} }%>
             <%= f.submit 'Edit', class:"btn btn-info mb-3"%>
           <% end %>
-          <%= link_to 'Back', coworking_path, class:"btn btn-light ml-3"%>
+          <%= link_to 'Back', profile_path, class:"btn btn-light ml-3"%>
       </div>
     </div>
   </div>
