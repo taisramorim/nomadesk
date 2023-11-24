@@ -1,13 +1,13 @@
 class RentsController < ApplicationController
-  before_action :set_coworking, only: [:new, :create, :edit, :update]
-  before_action :set_rent, only: %i[show destroy accept reject]
+  before_action :set_coworking, only: [:new, :create]
+  before_action :set_rent, only: %i[edit show update destroy accept reject]
 
   def edit
   end
 
   def update
     if @rent.update(rent_params)
-      redirect_to root_path, notice: "Your stay has been updated!"
+      redirect_to profile_path, notice: "Your stay has been updated!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -19,12 +19,6 @@ class RentsController < ApplicationController
 
   def new
     @rent = Rent.new
-    @markers = @coworking.geocoded.map do |coworking|
-      {
-        lat: coworking.latitude,
-        lng: coworking.longitude
-      }
-    end
   end
 
   def create

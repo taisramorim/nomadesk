@@ -26,7 +26,7 @@ class CoworkingsController < ApplicationController
     @markers = [{
         lat: @coworking.latitude,
         lng: @coworking.longitude
-      }]
+    }]
   end
 
   def edit
