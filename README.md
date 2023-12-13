@@ -1,1 +1,6 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+![Screenshot 2023-12-12 at 11 50 40 AM](https://github.com/taisramorim/nomadesk/assets/142619300/85435518-f88f-4a5b-a473-30268da48ff6)
+![Screenshot 2023-12-12 at 11 50 54 AM](https://github.com/taisramorim/nomadesk/assets/142619300/6148db0c-c087-4d85-afa9-ff8f9800bb03)
+![Screenshot 2023-12-12 at 11 51 17 AM](https://github.com/taisramorim/nomadesk/assets/142619300/30303e1e-83d6-44a1-a258-1f13a7405e8c)
+![Screenshot 2023-12-12 at 11 51 48 AM](https://github.com/taisramorim/nomadesk/assets/142619300/2c86e391-bd1d-4d35-b91d-009d09f31de8)
+![Screenshot 2023-12-12 at 11 52 28 AM](https://github.com/taisramorim/nomadesk/assets/142619300/ba87c107-23aa-44d4-8b19-ecf26162b04c)
+![Screenshot 2023-12-12 at 11 52 52 AM](https://github.com/taisramorim/nomadesk/assets/142619300/1afd0717-2fb7-4a1f-9d63-1579f872ee36)
